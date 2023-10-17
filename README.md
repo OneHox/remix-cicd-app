@@ -82,7 +82,7 @@ NETLIFY_AUTH_TOKEN
 
 # Basic Setup
 
-Run this command `without the @latest` and choose **`javascript`** and install any `Netlify Function`
+Run this command `without the @latest` and choose **`typescript`** and install any `Netlify Function`
 
 ```bash
 npx create-remix --template netlify/remix-template
