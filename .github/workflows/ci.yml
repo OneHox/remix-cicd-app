@@ -1,10 +1,20 @@
 name: CI
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    types:
+      - closed
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Get the code
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+      - name: Install netlify globally
+        run: npm install -g netlify-cli@latest
+      - name: Build the project
+        run: netlify build
+      - name: Deploying
+        run: netlify deploy --prod
