@@ -70,3 +70,56 @@ netlify deploy --build
 # production deployment
 netlify deploy --build --prod
 ```
+
+# Required Env's
+
+Please set these variables on your repository secrets.
+
+```bash
+NETLIFY_SITE_ID
+NETLIFY_AUTH_TOKEN
+```
+
+# Basic Setup
+
+Run this command `without the @latest` and choose **`javascript`** and install any `Netlify Function`
+
+```bash
+npx create-remix --template netlify/remix-template
+```
+
+##### remix.config.js
+
+```js
+future: {
+    v2_normalizeFormMethod: true,
+    // ...
+    v2_routeConvention: true,
+    v2_errorBoundary: true,
+    v2_headers: true,
+    v2_meta: true,
+    v2_dev: true
+}
+```
+
+##### Start
+
+```bash
+npm run dev
+```
+
+##### Using [netlify-cli](https://cli.netlify.com/commands/link/)
+
+```bash
+npm install
+
+npm install -g netlify-cli@latest
+
+export NETLIFY_AUTH_TOKEN={xyz}
+
+export NETLIFY_SITE_ID={appid}
+
+netlify build
+
+netlify deploy --prod
+```
